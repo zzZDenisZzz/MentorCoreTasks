@@ -8,6 +8,7 @@ public class Main {
         int lengthWord = array[0].length();
         int indexWord = 0;
 
+        //Searches for words under given condition
         for (int i = 0; i < array.length; i++)
             if (lengthWord < array[i].length()) {
                 lengthWord = array[i].length();

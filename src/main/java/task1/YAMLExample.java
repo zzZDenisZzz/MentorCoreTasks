@@ -9,25 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class YAMLExample {
-    public static void main(String[] args) throws IOException {
-        Integer[] array = {1, 1, 2, 3, 5, 5, 3, 4, 4, 6};
 
-        writeFile(array);
-
-        Integer[] arrayYAML = readFromFile("task1.yml");
-
-        uniqueDigits(arrayYAML);
-
-    }
-
-    public static void writeFile(Integer[] array) throws IOException {
+    //Saves data in file in format Yaml
+    public void saveToFile(Integer[] array) throws IOException {
         Yaml yaml = new Yaml();
         FileWriter fileWriter = new FileWriter("task1.yml");
         yaml.dump(array, fileWriter);
         fileWriter.close();
     }
 
-    public static Integer[] readFromFile(String file) throws IOException {
+    //Reads data from a file in a format Yaml
+    public Integer[] readFromFile(String file) throws IOException {
         List<Integer> list;
         Yaml yaml = new Yaml();
         FileReader fileReader = new FileReader(file);
@@ -37,7 +29,8 @@ public class YAMLExample {
         return array;
     }
 
-    public static void uniqueDigits(Integer[] arrayYAML) {
+    //Finding a unique number
+    public void uniqueDigits(Integer[] arrayYAML) {
         Arrays.sort(arrayYAML);
         for (int i = 0; i < arrayYAML.length; i++) {
             if (i < arrayYAML.length - 1 && arrayYAML[i] == arrayYAML[i + 1])
